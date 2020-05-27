@@ -98,7 +98,7 @@ fastlane/test_output
 
 # Custom stuff
 
-Asana Rebel.xcworkspace/xcuserdata/**/*
+TheMovieDB.xcworkspace/xcuserdata/**/*
 fastlane/*.cer
 *.ipa
 *.dSYM.zip
