@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NowPlayingViewController" customModule="TheMovieDB" customModuleProvider="target">
+            <connections>
+                <outlet property="searchBar" destination="Kev-O4-Tcy" id="87U-vr-JDd"/>
+                <outlet property="tableView" destination="hRm-B6-F3j" id="U8t-57-0qk"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <searchBar contentMode="redraw" placeholder="Search Movies" translatesAutoresizingMaskIntoConstraints="NO" id="Kev-O4-Tcy">
+                    <rect key="frame" x="0.0" y="44" width="414" height="56"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="yEK-2H-jkb"/>
+                    </connections>
+                </searchBar>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hRm-B6-F3j">
+                    <rect key="frame" x="0.0" y="100" width="414" height="762"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="YW1-Na-1UB"/>
+                        <outlet property="delegate" destination="-1" id="waD-lC-cI2"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="hRm-B6-F3j" secondAttribute="trailing" id="7TQ-Pc-kIa"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="hRm-B6-F3j" secondAttribute="bottom" id="9Hn-bY-Qfr"/>
+                <constraint firstItem="Kev-O4-Tcy" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="B4M-5j-7er"/>
+                <constraint firstItem="Kev-O4-Tcy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="DyG-R5-Jwj"/>
+                <constraint firstItem="hRm-B6-F3j" firstAttribute="top" secondItem="Kev-O4-Tcy" secondAttribute="bottom" id="RnN-sM-zjP"/>
+                <constraint firstItem="Kev-O4-Tcy" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="eNY-9m-rrG"/>
+                <constraint firstItem="hRm-B6-F3j" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="hQc-TZ-s5t"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="141" y="154"/>
+        </view>
+    </objects>
+</document>
