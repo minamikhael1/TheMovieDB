@@ -42,6 +42,7 @@
 		FFB64B7C247FE18F009AD832 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB64B7B247FE18F009AD832 /* NetworkConstants.swift */; };
 		FFB64B7E247FE300009AD832 /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB64B7D247FE300009AD832 /* DictionaryExtensions.swift */; };
 		FFB64B80247FE884009AD832 /* SearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB64B7F247FE884009AD832 /* SearchAPI.swift */; };
+		FFB64B84248010B8009AD832 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB64B83248010B8009AD832 /* SearchViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		FFB64B7B247FE18F009AD832 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 		FFB64B7D247FE300009AD832 /* DictionaryExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExtensions.swift; sourceTree = "<group>"; };
 		FFB64B7F247FE884009AD832 /* SearchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPI.swift; sourceTree = "<group>"; };
+		FFB64B83248010B8009AD832 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				FFB64B45247E8208009AD832 /* NowPlayingViewModel.swift */,
+				FFB64B83248010B8009AD832 /* SearchViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 				FFB64B46247E8208009AD832 /* NowPlayingViewModel.swift in Sources */,
 				FFB64B43247E81B1009AD832 /* NowPlayingViewController.swift in Sources */,
 				FFB64B77247EFF36009AD832 /* LoadingCell.swift in Sources */,
+				FFB64B84248010B8009AD832 /* SearchViewModel.swift in Sources */,
 				FFB64B6E247EAD79009AD832 /* URLSessionExtensions.swift in Sources */,
 				FFB64B6A247EAD11009AD832 /* URLComponentExtensions.swift in Sources */,
 				FFB64B5C247E95AF009AD832 /* Alert.swift in Sources */,

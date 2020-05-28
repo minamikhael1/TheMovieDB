@@ -36,3 +36,9 @@ enum NetworkError {
     case noJSONData
     case JSONDecoder
 }
+
+enum FetchingServiceState: Equatable {
+    case loading
+    case finishedLoading
+    case error(NetworkError?)
+}

@@ -14,6 +14,7 @@ class NowPlayingCoordinator: Coordinator {
     //MARK:- Variables
     var navigationController: UINavigationController
     var nowPlayingViewModel = NowPlayingViewModel()
+    var searchViewModel = SearchViewModel()
 
     //MARK:- Init
      init(navigationController: UINavigationController) {
@@ -22,7 +23,7 @@ class NowPlayingCoordinator: Coordinator {
 
     //MARK:- Helpers
     func getViewController() -> UIViewController {
-        return NowPlayingViewController(viewModel: nowPlayingViewModel)
+        return NowPlayingViewController(viewModel: nowPlayingViewModel, searchViewModel: searchViewModel)
     }
 
     func show(present: Bool = false) {
