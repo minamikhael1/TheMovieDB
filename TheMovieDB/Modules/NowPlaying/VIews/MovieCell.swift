@@ -20,8 +20,11 @@ class MovieCell: UITableViewCell {
         didSet {
             titleLabel.text = movie?.title
             overviewLabel.text = movie?.overview
+            let placeholderImage = UIImage(named: "placeholder")
             if let moviePoster = movie?.posterUrl() {
-                posterImage.kf.setImage(with: moviePoster, placeholder: UIImage(named: "placeholder"))
+                posterImage.kf.setImage(with: moviePoster, placeholder: placeholderImage)
+            } else {
+                posterImage.image = placeholderImage
             }
         }
     }

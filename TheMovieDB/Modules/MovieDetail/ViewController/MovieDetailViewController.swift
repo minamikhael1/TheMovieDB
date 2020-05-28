@@ -41,8 +41,11 @@ class MovieDetailViewController: UIViewController {
         titleLabel.text = movie.title
         overviewTextView.text = movie.overview
         ratingLabel.text = "\(movie.rating)"
+        let placeholderImage = UIImage(named: "placeholder")
         if let moviePoster = movie.posterUrl() {
-            posterImage.kf.setImage(with: moviePoster, placeholder: UIImage(named: "placeholder"))
+            posterImage.kf.setImage(with: moviePoster, placeholder: placeholderImage)
+        } else {
+            posterImage.image = placeholderImage
         }
     }
 
