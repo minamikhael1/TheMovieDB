@@ -22,9 +22,7 @@ class NowPlayingCoordinator: Coordinator {
 
     //MARK:- Helpers
     func getViewController() -> UIViewController {
-        let nowPlayingViewController = NowPlayingViewController(viewModel: nowPlayingViewModel)
-        nowPlayingViewModel.delegate = self
-        return nowPlayingViewController
+        return NowPlayingViewController(viewModel: nowPlayingViewModel)
     }
 
     func show(present: Bool = false) {
@@ -36,13 +34,5 @@ class NowPlayingCoordinator: Coordinator {
             self.navigationController.navigationBar.prefersLargeTitles = true
             self.navigationController.pushViewController(repositoriesListViewController, animated: true)
         }
-    }
-}
-
-//MARK:- RepositoriesListViewModelDelegate
-extension NowPlayingCoordinator: NowPlayingViewModelDelegate {
-    func nowPlayingDidSelect(movie: Movie) {
-        let detailsPageCoordinator = MovieDetailCoordinator(navigationController: self.navigationController, movie: movie)
-        detailsPageCoordinator.show()
     }
 }

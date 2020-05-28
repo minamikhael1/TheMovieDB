@@ -12,7 +12,7 @@ import Kingfisher
 class MovieCell: UITableViewCell {
 
     static let cellIdentifier = String(describing: MovieCell.self)
-    @IBOutlet weak var movieImage: UIImageView!
+    @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!
 
@@ -21,13 +21,13 @@ class MovieCell: UITableViewCell {
             titleLabel.text = movie?.title
             overviewLabel.text = movie?.overview
             if let moviePoster = movie?.posterUrl() {
-                movieImage.kf.setImage(with: moviePoster, placeholder: UIImage(named: "placeholder"))
+                posterImage.kf.setImage(with: moviePoster, placeholder: UIImage(named: "placeholder"))
             }
         }
     }
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        movieImage.layer.cornerRadius = movieImage.frame.width / 2
+        posterImage.layer.cornerRadius = posterImage.frame.width / 2
     }
 }

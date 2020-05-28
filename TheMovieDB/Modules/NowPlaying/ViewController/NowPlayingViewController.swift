@@ -108,7 +108,8 @@ extension NowPlayingViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-//        viewModel?.didSelectItemAt(index: indexPath.row)
+        guard let movie = viewModel?.nowPlayingList.value[indexPath.row] else { return }
+        MovieDetailCoordinator(navigationController: self.navigationController ?? UINavigationController(), movie: movie).show()
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

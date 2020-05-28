@@ -11,15 +11,19 @@ import UIKit
 class MovieDetailViewController: UIViewController {
 
     //MARK:- IBOutlet
-
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var overviewTextView: UITextView!
+    @IBOutlet weak var posterImage: UIImageView!
+    @IBOutlet weak var ratingLabel: UILabel!
+    
     //MARK:- Variables
     var movie: Movie?
 
     //MARK:- View Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
         setupView()
-        bindViewModel()
     }
 
     init(movie: Movie) {
@@ -33,23 +37,16 @@ class MovieDetailViewController: UIViewController {
 
     //MARK:- Helpers
     func setupView() {
+        guard let movie = movie else { return }
+        titleLabel.text = movie.title
+        overviewTextView.text = movie.overview
+        ratingLabel.text = "\(movie.rating)"
+        if let moviePoster = movie.posterUrl() {
+            posterImage.kf.setImage(with: moviePoster, placeholder: UIImage(named: "placeholder"))
+        }
     }
 
-    //MARK:- Data binding
-    private func bindViewModel() {
-//        viewModel?.repository.bindAndFire { [weak self] repository in
-//            DispatchQueue.main.async {
-//                if let imageURL = repository?.owner.avatarUrl,
-//                    let url = URL(string: imageURL),
-//                    let imageView = self?.ownerImageView {
-//                    let options = ImageLoadingOptions(transition: .fadeIn(duration: 0.5))
-//                    Nuke.loadImage(with: url, options: options, into: imageView)
-//                }
-//                self?.repoNameLabel.text = repository?.name
-//                self?.repoDescriptionLabel.text = repository?.description
-//                self?.starCountsLabel.text = "\(repository?.stargazersCount ?? 0)"
-//                self?.forksCountLabel.text = "\(repository?.forksCount ?? 0)"
-//            }
-//        }
+    @IBAction func back(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
 }

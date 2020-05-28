@@ -14,10 +14,6 @@ enum FetchingServiceState: Equatable {
     case error(NetworkError?)
 }
 
-protocol NowPlayingViewModelDelegate {
-    func nowPlayingDidSelect(movie: Movie)
-}
-
 class NowPlayingViewModel {
 
     //MARK:- Properties
@@ -25,7 +21,6 @@ class NowPlayingViewModel {
     private let apiClient: APIClient
     private var searchResponse: SearchResponse?
     private (set) var nowPlayingList: Bindable<[Movie]> = Bindable([])
-    var delegate: NowPlayingViewModelDelegate?
     private (set) var currentPage: Int = 1
     private (set) var totalPages: Int = Int.max
 
@@ -52,18 +47,5 @@ class NowPlayingViewModel {
             }
         })
     }
-
-//    func didSelectItemAt(index: Int) {
-//        if let movie = searchResponse?.repositories[index] {
-//            self.delegate?.repositoriesListViewModelDidSelect(repository: repository)
-//        }
-//    }
-//
-//    func update(repository: Repository) {
-//        if let searchReposnse = self.searchResponse, let index = self.searchResponse?.repositories.firstIndex(where: {$0.id == repository.id}) {
-//            self.searchResponse?.repositories[index] = repository
-//            self.repositoriesCellsViewModels.value = searchReposnse.repositories.compactMap { RepositoryCellViewModel(repository: $0)}
-//        }
-//    }
 }
 
