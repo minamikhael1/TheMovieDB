@@ -53,6 +53,7 @@ class NowPlayingViewController: UIViewController {
     private func setUpTableView() {
         tableView.register(UINib(nibName: MovieCell.cellIdentifier, bundle: nil), forCellReuseIdentifier: MovieCell.cellIdentifier)
         tableView.register(UINib(nibName: LoadingCell.cellIdentifier, bundle: nil), forCellReuseIdentifier: LoadingCell.cellIdentifier)
+        tableView.register(UINib(nibName: EmptyDataCell.cellIdentifier, bundle: nil), forCellReuseIdentifier: EmptyDataCell.cellIdentifier)
         tableView.estimatedRowHeight = UITableView.automaticDimension
         tableView.tableFooterView = UIView()
     }
@@ -105,11 +106,10 @@ extension NowPlayingViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            if searchMode {
-                return searchViewModel?.searchResult.value.count ?? 0
-            } else {
-                return viewModel?.nowPlayingList.value.count ?? 0
-            }
+            guard
+                let movieList = searchMode ? searchViewModel?.searchResult.value : viewModel?.nowPlayingList.value,
+                let state = searchMode ? searchViewModel?.state.value : viewModel?.state.value else { return 0 }
+            return (movieList.count == 0 && state != .loading) ? 1: movieList.count // 1 for the empty data cell only if its not loading
         } else if section == 1 {
             return 1 // For infinite loading cell
         } else {
@@ -119,15 +119,16 @@ extension NowPlayingViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.cellIdentifier) as? MovieCell else { return UITableViewCell() }
-            var movie: Movie?
-            if searchMode {
-                movie = searchViewModel?.searchResult.value[indexPath.row]
+            guard let movieList = searchMode ? searchViewModel?.searchResult.value : viewModel?.nowPlayingList.value else { return UITableViewCell() }
+            if movieList.count > 0 {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.cellIdentifier) as? MovieCell else { return UITableViewCell() }
+                cell.movie = movieList[indexPath.row]
+                return cell
             } else {
-                movie = viewModel?.nowPlayingList.value[indexPath.row]
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: EmptyDataCell.cellIdentifier) as? EmptyDataCell else { return UITableViewCell() }
+                cell.emptyMessageLabel.text = searchMode ? "No search results for \"\(searchViewModel?.currentQuery ?? "")\"" : "There are no currently playing movies"
+                return cell
             }
-            cell.movie = movie
-            return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: LoadingCell.cellIdentifier) as? LoadingCell else { return UITableViewCell() }
             cell.activityIndicator.startAnimating()
@@ -145,14 +146,9 @@ extension NowPlayingViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        var movie: Movie?
-        if searchMode {
-            movie = searchViewModel?.searchResult.value[indexPath.row]
-        } else {
-            movie = viewModel?.nowPlayingList.value[indexPath.row]
-        }
-        guard let theMovie = movie else { return }
-        MovieDetailCoordinator(navigationController: self.navigationController ?? UINavigationController(), movie: theMovie).show()
+        guard let movieList = searchMode ? searchViewModel?.searchResult.value : viewModel?.nowPlayingList.value else { return }
+        let movie = movieList[indexPath.row]
+        MovieDetailCoordinator(navigationController: self.navigationController ?? UINavigationController(), movie: movie).show()
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

@@ -47,6 +47,8 @@
 		FFB64B8B248053DD009AD832 /* URLRequestExtentionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB64B8A248053DD009AD832 /* URLRequestExtentionTests.swift */; };
 		FFB64B8E248053F9009AD832 /* BindableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB64B8D248053F9009AD832 /* BindableTests.swift */; };
 		FFB64B9124805435009AD832 /* NowPlayingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB64B9024805435009AD832 /* NowPlayingViewModelTests.swift */; };
+		FFB64B9824806CDD009AD832 /* EmptyDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB64B9624806CDD009AD832 /* EmptyDataCell.swift */; };
+		FFB64B9924806CDD009AD832 /* EmptyDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFB64B9724806CDD009AD832 /* EmptyDataCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +108,8 @@
 		FFB64B8A248053DD009AD832 /* URLRequestExtentionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestExtentionTests.swift; sourceTree = "<group>"; };
 		FFB64B8D248053F9009AD832 /* BindableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindableTests.swift; sourceTree = "<group>"; };
 		FFB64B9024805435009AD832 /* NowPlayingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingViewModelTests.swift; sourceTree = "<group>"; };
+		FFB64B9624806CDD009AD832 /* EmptyDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyDataCell.swift; sourceTree = "<group>"; };
+		FFB64B9724806CDD009AD832 /* EmptyDataCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyDataCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -292,6 +296,8 @@
 				FFB64B48247E8254009AD832 /* MovieCell.xib */,
 				FFB64B75247EFF36009AD832 /* LoadingCell.swift */,
 				FFB64B76247EFF36009AD832 /* LoadingCell.xib */,
+				FFB64B9624806CDD009AD832 /* EmptyDataCell.swift */,
+				FFB64B9724806CDD009AD832 /* EmptyDataCell.xib */,
 			);
 			path = VIews;
 			sourceTree = "<group>";
@@ -480,6 +486,7 @@
 			files = (
 				FFB64B54247E87A0009AD832 /* MovieDetailViewController.xib in Resources */,
 				FFB64B10247E7A0A009AD832 /* LaunchScreen.storyboard in Resources */,
+				FFB64B9924806CDD009AD832 /* EmptyDataCell.xib in Resources */,
 				FFB64B78247EFF36009AD832 /* LoadingCell.xib in Resources */,
 				FFB64B0D247E7A0A009AD832 /* Assets.xcassets in Resources */,
 				FFB64B4A247E8254009AD832 /* MovieCell.xib in Resources */,
@@ -549,6 +556,7 @@
 				FFB64B56247E87B6009AD832 /* MovieDetailCoordinator.swift in Sources */,
 				FFB64B40247E818B009AD832 /* NowPlayingCoordinator.swift in Sources */,
 				FFB64B4C247E82D2009AD832 /* NowPlayingResponse.swift in Sources */,
+				FFB64B9824806CDD009AD832 /* EmptyDataCell.swift in Sources */,
 				FFB64B49247E8254009AD832 /* MovieCell.swift in Sources */,
 				FFB64B6C247EAD40009AD832 /* URLReuquestExtensions.swift in Sources */,
 				FFB64B80247FE884009AD832 /* SearchAPI.swift in Sources */,
