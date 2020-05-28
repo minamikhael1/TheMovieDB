@@ -13,7 +13,7 @@ class MovieDetailViewController: UIViewController {
     //MARK:- IBOutlet
 
     //MARK:- Variables
-    var viewModel: MovieDetailViewModel?
+    var movie: Movie?
 
     //MARK:- View Life cycle
     override func viewDidLoad() {
@@ -22,9 +22,9 @@ class MovieDetailViewController: UIViewController {
         bindViewModel()
     }
 
-    init(viewModel: MovieDetailViewModel) {
+    init(movie: Movie) {
         super.init(nibName: String(describing: MovieDetailViewController.self), bundle: nil)
-        self.viewModel = viewModel
+        self.movie = movie
     }
 
     required init?(coder: NSCoder) {

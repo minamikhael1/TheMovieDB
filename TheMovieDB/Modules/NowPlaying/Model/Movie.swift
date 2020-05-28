@@ -14,13 +14,15 @@ struct Movie: Codable {
     var title: String?
     var overview: String?
     var poster: String?
+    var rating: Float
 
     func posterUrl() -> URL? {
-        return URL(string: "https://image.tmdb.org/t/p/w500/\(poster ?? "")")
+        return URL(string: "\(NetworkConstants.imagesBaseURL)\(poster ?? "")")
     }
 
     enum CodingKeys: String, CodingKey {
         case id, title, overview
         case poster = "poster_path"
+        case rating = "vote_average"
     }
 }

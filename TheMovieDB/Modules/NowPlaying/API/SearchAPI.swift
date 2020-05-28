@@ -1,26 +1,28 @@
 //
-//  MovieDetailAPI.swift
+//  SearchAPI.swift
 //  TheMovieDB
 //
-//  Created by Mina Mikhael on 27.05.20.
+//  Created by Mina Mikhael on 28.05.20.
 //  Copyright © 2020 MoviesDB. All rights reserved.
 //
 
 import Foundation
-class MovieDetailAPI: Service {
+
+class SearchAPI: Service {
 
     var paramters: [String: String]?
 
     init(paramters: [String: String]?) {
         self.paramters = paramters
+        self.paramters?.append(dict: NetworkConstants.defaultRequestParams)
     }
 
     var baseURL: URL {
-        return URL(string: "https://api.github.com")!
+        return URL(string: NetworkConstants.baseURL)!
     }
 
     var path: String {
-        return "/search/repositories"
+        return NetworkConstants.searchServicePath
     }
 
     var method: HTTPMethod {
@@ -32,7 +34,7 @@ class MovieDetailAPI: Service {
     }
 
     var headers: RequestHeaders? {
-        return nil
+        return NetworkConstants.defaultRequestHeaders
     }
 
     var parametersEncoding: ParametersEncoding {
@@ -40,6 +42,6 @@ class MovieDetailAPI: Service {
     }
 }
 
-protocol MovieDetailAPIService {
-    func getMovieDetails(service: Service, completion: @escaping (_ result: NetworkServiceResponse<Movie>) -> ())
+protocol SearchAPIService {
+    func searchMovies(service: Service, completion: @escaping (_ result: NetworkServiceResponse<SearchResponse>) -> ())
 }

@@ -27,7 +27,6 @@
 		FFB64B53247E87A0009AD832 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB64B51247E87A0009AD832 /* MovieDetailViewController.swift */; };
 		FFB64B54247E87A0009AD832 /* MovieDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFB64B52247E87A0009AD832 /* MovieDetailViewController.xib */; };
 		FFB64B56247E87B6009AD832 /* MovieDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB64B55247E87B6009AD832 /* MovieDetailCoordinator.swift */; };
-		FFB64B58247E87DB009AD832 /* MovieDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB64B57247E87DB009AD832 /* MovieDetailViewModel.swift */; };
 		FFB64B5A247E958C009AD832 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB64B59247E958C009AD832 /* UIViewControllerExtensions.swift */; };
 		FFB64B5C247E95AF009AD832 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB64B5B247E95AF009AD832 /* Alert.swift */; };
 		FFB64B62247EAB50009AD832 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB64B61247EAB50009AD832 /* Service.swift */; };
@@ -38,11 +37,11 @@
 		FFB64B6E247EAD79009AD832 /* URLSessionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB64B6D247EAD79009AD832 /* URLSessionExtensions.swift */; };
 		FFB64B70247EADB3009AD832 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB64B6F247EADB3009AD832 /* APIClient.swift */; };
 		FFB64B72247EAEAA009AD832 /* NowPlayingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB64B71247EAEAA009AD832 /* NowPlayingAPI.swift */; };
-		FFB64B74247EAF5F009AD832 /* MovieDetailAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB64B73247EAF5F009AD832 /* MovieDetailAPI.swift */; };
 		FFB64B77247EFF36009AD832 /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB64B75247EFF36009AD832 /* LoadingCell.swift */; };
 		FFB64B78247EFF36009AD832 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFB64B76247EFF36009AD832 /* LoadingCell.xib */; };
 		FFB64B7C247FE18F009AD832 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB64B7B247FE18F009AD832 /* NetworkConstants.swift */; };
 		FFB64B7E247FE300009AD832 /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB64B7D247FE300009AD832 /* DictionaryExtensions.swift */; };
+		FFB64B80247FE884009AD832 /* SearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB64B7F247FE884009AD832 /* SearchAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,7 +81,6 @@
 		FFB64B51247E87A0009AD832 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		FFB64B52247E87A0009AD832 /* MovieDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieDetailViewController.xib; sourceTree = "<group>"; };
 		FFB64B55247E87B6009AD832 /* MovieDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailCoordinator.swift; sourceTree = "<group>"; };
-		FFB64B57247E87DB009AD832 /* MovieDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewModel.swift; sourceTree = "<group>"; };
 		FFB64B59247E958C009AD832 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		FFB64B5B247E95AF009AD832 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		FFB64B61247EAB50009AD832 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
@@ -93,11 +91,11 @@
 		FFB64B6D247EAD79009AD832 /* URLSessionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionExtensions.swift; sourceTree = "<group>"; };
 		FFB64B6F247EADB3009AD832 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		FFB64B71247EAEAA009AD832 /* NowPlayingAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingAPI.swift; sourceTree = "<group>"; };
-		FFB64B73247EAF5F009AD832 /* MovieDetailAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailAPI.swift; sourceTree = "<group>"; };
 		FFB64B75247EFF36009AD832 /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
 		FFB64B76247EFF36009AD832 /* LoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 		FFB64B7B247FE18F009AD832 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 		FFB64B7D247FE300009AD832 /* DictionaryExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExtensions.swift; sourceTree = "<group>"; };
+		FFB64B7F247FE884009AD832 /* SearchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,11 +238,8 @@
 		FFB64B31247E8031009AD832 /* MovieDetail */ = {
 			isa = PBXGroup;
 			children = (
-				FFB64B39247E810D009AD832 /* API */,
 				FFB64B3B247E810D009AD832 /* Coordinator */,
 				FFB64B3D247E810D009AD832 /* ViewController */,
-				FFB64B3A247E810D009AD832 /* ViewModel */,
-				FFB64B3C247E810D009AD832 /* VIews */,
 			);
 			path = MovieDetail;
 			sourceTree = "<group>";
@@ -299,24 +294,9 @@
 			isa = PBXGroup;
 			children = (
 				FFB64B71247EAEAA009AD832 /* NowPlayingAPI.swift */,
+				FFB64B7F247FE884009AD832 /* SearchAPI.swift */,
 			);
 			path = API;
-			sourceTree = "<group>";
-		};
-		FFB64B39247E810D009AD832 /* API */ = {
-			isa = PBXGroup;
-			children = (
-				FFB64B73247EAF5F009AD832 /* MovieDetailAPI.swift */,
-			);
-			path = API;
-			sourceTree = "<group>";
-		};
-		FFB64B3A247E810D009AD832 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				FFB64B57247E87DB009AD832 /* MovieDetailViewModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		FFB64B3B247E810D009AD832 /* Coordinator */ = {
@@ -325,13 +305,6 @@
 				FFB64B55247E87B6009AD832 /* MovieDetailCoordinator.swift */,
 			);
 			path = Coordinator;
-			sourceTree = "<group>";
-		};
-		FFB64B3C247E810D009AD832 /* VIews */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = VIews;
 			sourceTree = "<group>";
 		};
 		FFB64B3D247E810D009AD832 /* ViewController */ = {
@@ -539,10 +512,10 @@
 				FFB64B4C247E82D2009AD832 /* NowPlayingResponse.swift in Sources */,
 				FFB64B49247E8254009AD832 /* MovieCell.swift in Sources */,
 				FFB64B6C247EAD40009AD832 /* URLReuquestExtensions.swift in Sources */,
+				FFB64B80247FE884009AD832 /* SearchAPI.swift in Sources */,
 				FFB64B65247EAB9A009AD832 /* NetworkEnums.swift in Sources */,
 				FFB64B53247E87A0009AD832 /* MovieDetailViewController.swift in Sources */,
 				FFB64B4E247E82DC009AD832 /* Movie.swift in Sources */,
-				FFB64B74247EAF5F009AD832 /* MovieDetailAPI.swift in Sources */,
 				FFB64B5A247E958C009AD832 /* UIViewControllerExtensions.swift in Sources */,
 				FFB64B04247E7A08009AD832 /* AppDelegate.swift in Sources */,
 				FFB64B50247E834B009AD832 /* SearchResponse.swift in Sources */,
@@ -552,7 +525,6 @@
 				FFB64B62247EAB50009AD832 /* Service.swift in Sources */,
 				FFB64B46247E8208009AD832 /* NowPlayingViewModel.swift in Sources */,
 				FFB64B43247E81B1009AD832 /* NowPlayingViewController.swift in Sources */,
-				FFB64B58247E87DB009AD832 /* MovieDetailViewModel.swift in Sources */,
 				FFB64B77247EFF36009AD832 /* LoadingCell.swift in Sources */,
 				FFB64B6E247EAD79009AD832 /* URLSessionExtensions.swift in Sources */,
 				FFB64B6A247EAD11009AD832 /* URLComponentExtensions.swift in Sources */,

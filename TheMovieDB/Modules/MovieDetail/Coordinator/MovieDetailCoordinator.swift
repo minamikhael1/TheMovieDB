@@ -24,8 +24,7 @@ class MovieDetailCoordinator: Coordinator {
 
     //MARK:- Helpers
     func getViewController() -> UIViewController {
-        let viewModel = MovieDetailViewModel(movie: movie)
-        return MovieDetailViewController(viewModel: viewModel)
+        return MovieDetailViewController(movie: movie)
     }
 
     func show(present: Bool = false) {

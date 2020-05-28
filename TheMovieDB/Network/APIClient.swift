@@ -8,7 +8,7 @@
 
 import Foundation
 
-class APIClient: NowPlayingAPIService, MovieDetailAPIService {
+class APIClient: NowPlayingAPIService, SearchAPIService {
 
     private var session: URLSessionProtocol
 
@@ -54,7 +54,7 @@ class APIClient: NowPlayingAPIService, MovieDetailAPIService {
         self.request(type: NowPlayingResponse.self, service: service, completion: completion)
     }
 
-    func getMovieDetails(service: Service, completion: @escaping (NetworkServiceResponse<Movie>) -> ()) {
-        self.request(type: Movie.self, service: service, completion: completion)
+    func searchMovies(service: Service, completion: @escaping (NetworkServiceResponse<SearchResponse>) -> ()) {
+        self.request(type: SearchResponse.self, service: service, completion: completion)
     }
 }
