@@ -184,12 +184,10 @@ extension NowPlayingViewController: UISearchBarDelegate {
         if searchBar.text == nil || searchBar.text?.isEmpty == true {
             resetSearch()
         }
-        toggleSearch(searchStarted: true)
         searchBar.setShowsCancelButton(true, animated: true)
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        toggleSearch(searchStarted: false)
         searchBar.text = nil
         resetSearch()
         searchBar.setShowsCancelButton(false, animated: true)
@@ -221,15 +219,8 @@ extension NowPlayingViewController {
         searchViewModel?.search(query: searchText)
     }
 
-    private func toggleSearch(searchStarted: Bool) {
-        UIView.animate(withDuration: 0.3, animations: {[weak self] in
-            self?.tableView.reloadData()
-        })
-    }
-
     private func resetSearch() {
         searchMode = false
         searchViewModel?.resetSearch()
     }
 }
-
