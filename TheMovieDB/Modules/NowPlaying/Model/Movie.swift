@@ -14,7 +14,10 @@ struct Movie: Codable {
     var title: String?
     var overview: String?
     var poster: String?
-    var rating: Float
+    private var voteAverage: Decimal
+    var rating: NSDecimalNumber {
+        get { return NSDecimalNumber(decimal: voteAverage) }
+    }
 
     func posterUrl() -> URL? {
         return URL(string: "\(NetworkConstants.imagesBaseURL)\(poster ?? "")")
@@ -23,6 +26,6 @@ struct Movie: Codable {
     enum CodingKeys: String, CodingKey {
         case id, title, overview
         case poster = "poster_path"
-        case rating = "vote_average"
+        case voteAverage = "vote_average"
     }
 }
