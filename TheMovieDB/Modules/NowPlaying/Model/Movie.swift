@@ -11,12 +11,12 @@ import Foundation
 struct Movie: Codable {
 
     var id: Int
-    var title: String
-    var overview: String
-    var poster: String
+    var title: String?
+    var overview: String?
+    var poster: String?
 
     func posterUrl() -> URL? {
-        return URL(string: "https://image.tmdb.org/t/p/w500/\(poster)")
+        return URL(string: "https://image.tmdb.org/t/p/w500/\(poster ?? "")")
     }
 
     enum CodingKeys: String, CodingKey {

@@ -34,7 +34,7 @@ class NowPlayingAPI: Service {
     }
 
     var headers: RequestHeaders? {
-        return nil
+        return ["Content-type": "application/json; charset=utf-8"]
     }
 
     var parametersEncoding: ParametersEncoding {

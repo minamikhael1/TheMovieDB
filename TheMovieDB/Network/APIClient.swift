@@ -35,10 +35,14 @@ class APIClient: NowPlayingAPIService, MovieDetailAPIService {
         guard let response = response else { return completion(.failure(.noJSONData)) }
         switch response.statusCode {
         case 200...299:
-            guard let data = data, let model = try? JSONDecoder().decode(T.self, from: data) else {
-                return completion(.failure(.JSONDecoder))
+            guard let data = data else { return completion(.failure(.JSONDecoder)) }
+            do {
+                let model = try JSONDecoder().decode(T.self, from: data)
+                completion(.success(model))
+            } catch (let error) {
+                print(error)
+                completion(.failure(.unknown))
             }
-            completion(.success(model))
         default:
             completion(.failure(.unknown))
         }
