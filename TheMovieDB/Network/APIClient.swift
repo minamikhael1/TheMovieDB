@@ -21,7 +21,7 @@ class APIClient: NowPlayingAPIService, SearchAPIService {
      - Parameter type: is generic type should be a model that confirm to `Codable` protocol
      - Parameter completion: result of type `NetworkResponse`.
      */
-    private func request<T>(type: T.Type, service: Service, completion: @escaping (NetworkServiceResponse<T>) -> ()) where T: Decodable {
+    private func request<T>(type: T.Type, service: Service, completion: @escaping (APIResponse<T>) -> ()) where T: Decodable {
         let request = URLRequest(service: service)
         let task = session.dataTask(request: request, completionHandler: {[weak self] data, response, error in
             let httpResponse = response as? HTTPURLResponse
@@ -30,7 +30,7 @@ class APIClient: NowPlayingAPIService, SearchAPIService {
         task.resume()
     }
 
-    private func handleDataResponse<T: Decodable>(data: Data?, response: HTTPURLResponse?, error: Error?, completion: (NetworkServiceResponse<T>) -> ()) {
+    private func handleDataResponse<T: Decodable>(data: Data?, response: HTTPURLResponse?, error: Error?, completion: (APIResponse<T>) -> ()) {
         guard error == nil else { return completion(.failure(.unknown)) }
         guard let response = response, let data = data else { return completion(.failure(.noJSONData)) }
         switch response.statusCode {
@@ -50,11 +50,11 @@ class APIClient: NowPlayingAPIService, SearchAPIService {
     }
 
     //MARK:- Services
-    func getNowPlayingMovies(service: Service, completion: @escaping (NetworkServiceResponse<NowPlayingResponse>) -> ()) {
+    func getNowPlayingMovies(service: Service, completion: @escaping (APIResponse<NowPlayingResponse>) -> ()) {
         self.request(type: NowPlayingResponse.self, service: service, completion: completion)
     }
 
-    func searchMovies(service: Service, completion: @escaping (NetworkServiceResponse<SearchResponse>) -> ()) {
+    func searchMovies(service: Service, completion: @escaping (APIResponse<SearchResponse>) -> ()) {
         self.request(type: SearchResponse.self, service: service, completion: completion)
     }
 }

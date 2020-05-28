@@ -43,5 +43,5 @@ class NowPlayingAPI: Service {
 }
 
 protocol NowPlayingAPIService {
-    func getNowPlayingMovies(service: Service, completion: @escaping (_ result: NetworkServiceResponse<NowPlayingResponse>) -> ())
+    func getNowPlayingMovies(service: Service, completion: @escaping (_ result: APIResponse<NowPlayingResponse>) -> ())
 }

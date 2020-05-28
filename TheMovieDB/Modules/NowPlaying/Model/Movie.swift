@@ -19,6 +19,14 @@ struct Movie: Codable {
         get { return NSDecimalNumber(decimal: voteAverage) }
     }
 
+    init(id: Int, title: String, overview: String, poster: String, voteAverage: Decimal) {
+        self.id = id
+        self.title = title
+        self.overview = overview
+        self.poster = poster
+        self.voteAverage = voteAverage
+    }
+
     func posterUrl() -> URL? {
         return URL(string: "\(NetworkConstants.imagesBaseURL)\(poster ?? "")")
     }

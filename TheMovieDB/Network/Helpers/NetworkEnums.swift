@@ -25,7 +25,7 @@ enum ParametersEncoding {
     case json
 }
 
-enum NetworkServiceResponse<T> {
+enum APIResponse<T> {
     case success(T)
     case failure(NetworkError)
 }

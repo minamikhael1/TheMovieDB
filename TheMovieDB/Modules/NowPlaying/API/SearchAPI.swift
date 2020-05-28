@@ -43,5 +43,5 @@ class SearchAPI: Service {
 }
 
 protocol SearchAPIService {
-    func searchMovies(service: Service, completion: @escaping (_ result: NetworkServiceResponse<SearchResponse>) -> ())
+    func searchMovies(service: Service, completion: @escaping (_ result: APIResponse<SearchResponse>) -> ())
 }
