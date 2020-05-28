@@ -41,6 +41,8 @@
 		FFB64B74247EAF5F009AD832 /* MovieDetailAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB64B73247EAF5F009AD832 /* MovieDetailAPI.swift */; };
 		FFB64B77247EFF36009AD832 /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB64B75247EFF36009AD832 /* LoadingCell.swift */; };
 		FFB64B78247EFF36009AD832 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFB64B76247EFF36009AD832 /* LoadingCell.xib */; };
+		FFB64B7C247FE18F009AD832 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB64B7B247FE18F009AD832 /* NetworkConstants.swift */; };
+		FFB64B7E247FE300009AD832 /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB64B7D247FE300009AD832 /* DictionaryExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +96,8 @@
 		FFB64B73247EAF5F009AD832 /* MovieDetailAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailAPI.swift; sourceTree = "<group>"; };
 		FFB64B75247EFF36009AD832 /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
 		FFB64B76247EFF36009AD832 /* LoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
+		FFB64B7B247FE18F009AD832 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
+		FFB64B7D247FE300009AD832 /* DictionaryExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				FFB64B59247E958C009AD832 /* UIViewControllerExtensions.swift */,
+				FFB64B7D247FE300009AD832 /* DictionaryExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -341,6 +346,7 @@
 		FFB64B5F247EAA4E009AD832 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				FFB64B7B247FE18F009AD832 /* NetworkConstants.swift */,
 				FFB64B6F247EADB3009AD832 /* APIClient.swift */,
 				FFB64B68247EACFF009AD832 /* Extensions */,
 				FFB64B63247EAB76009AD832 /* Helpers */,
@@ -525,6 +531,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFB64B7C247FE18F009AD832 /* NetworkConstants.swift in Sources */,
 				FFB64B72247EAEAA009AD832 /* NowPlayingAPI.swift in Sources */,
 				FFB64B2B247E7F53009AD832 /* Coordinator.swift in Sources */,
 				FFB64B56247E87B6009AD832 /* MovieDetailCoordinator.swift in Sources */,
@@ -539,6 +546,7 @@
 				FFB64B5A247E958C009AD832 /* UIViewControllerExtensions.swift in Sources */,
 				FFB64B04247E7A08009AD832 /* AppDelegate.swift in Sources */,
 				FFB64B50247E834B009AD832 /* SearchResponse.swift in Sources */,
+				FFB64B7E247FE300009AD832 /* DictionaryExtensions.swift in Sources */,
 				FFB64B2F247E7FBF009AD832 /* Typealias.swift in Sources */,
 				FFB64B67247EACD5009AD832 /* URLSessionProtocol.swift in Sources */,
 				FFB64B62247EAB50009AD832 /* Service.swift in Sources */,
@@ -705,6 +713,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P2Y84SE7U4;
 				INFOPLIST_FILE = TheMovieDB/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -726,6 +735,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P2Y84SE7U4;
 				INFOPLIST_FILE = TheMovieDB/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (

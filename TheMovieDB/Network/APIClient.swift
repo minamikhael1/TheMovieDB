@@ -32,17 +32,18 @@ class APIClient: NowPlayingAPIService, MovieDetailAPIService {
 
     private func handleDataResponse<T: Decodable>(data: Data?, response: HTTPURLResponse?, error: Error?, completion: (NetworkServiceResponse<T>) -> ()) {
         guard error == nil else { return completion(.failure(.unknown)) }
-        guard let response = response else { return completion(.failure(.noJSONData)) }
+        guard let response = response, let data = data else { return completion(.failure(.noJSONData)) }
         switch response.statusCode {
         case 200...299:
-            guard let data = data else { return completion(.failure(.JSONDecoder)) }
             do {
                 let model = try JSONDecoder().decode(T.self, from: data)
                 completion(.success(model))
             } catch (let error) {
                 print(error)
-                completion(.failure(.unknown))
+                completion(.failure(.JSONDecoder))
             }
+        case 401:
+            completion(.failure(.unauthorized))
         default:
             completion(.failure(.unknown))
         }

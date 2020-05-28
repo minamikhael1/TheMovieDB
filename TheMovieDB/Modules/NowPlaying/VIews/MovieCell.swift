@@ -21,8 +21,13 @@ class MovieCell: UITableViewCell {
             titleLabel.text = movie?.title
             overviewLabel.text = movie?.overview
             if let moviePoster = movie?.posterUrl() {
-                movieImage.kf.setImage(with: moviePoster, options: [.transition(.fade(0.8))])
+                movieImage.kf.setImage(with: moviePoster, placeholder: UIImage(named: "placeholder"))
             }
         }
+    }
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        movieImage.layer.cornerRadius = movieImage.frame.width / 2
     }
 }

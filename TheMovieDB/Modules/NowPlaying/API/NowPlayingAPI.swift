@@ -14,15 +14,15 @@ class NowPlayingAPI: Service {
 
     init(paramters: [String: String]?) {
         self.paramters = paramters
-        self.paramters?["api_key"] = "04c56a8a469a987ce3cf341217ff9664"
+        self.paramters?.append(dict: NetworkConstants.defaultRequestParams)
     }
 
     var baseURL: URL {
-        return URL(string: "https://api.themoviedb.org/3")!
+        return URL(string: NetworkConstants.baseURL)!
     }
 
     var path: String {
-        return "/movie/now_playing"
+        return NetworkConstants.nowPlayingServicePath
     }
 
     var method: HTTPMethod {
@@ -34,7 +34,7 @@ class NowPlayingAPI: Service {
     }
 
     var headers: RequestHeaders? {
-        return ["Content-type": "application/json; charset=utf-8"]
+        return NetworkConstants.defaultRequestHeaders
     }
 
     var parametersEncoding: ParametersEncoding {

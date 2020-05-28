@@ -9,6 +9,6 @@
 import UIKit
 
 class LoadingCell: UITableViewCell {
-    static let cellIdentifier = String(describing: MovieCell.self)
+    static let cellIdentifier = String(describing: LoadingCell.self)
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 }

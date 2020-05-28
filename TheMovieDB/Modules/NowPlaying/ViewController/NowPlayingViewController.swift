@@ -49,11 +49,6 @@ class NowPlayingViewController: UIViewController {
         tableView.tableFooterView = UIView()
     }
 
-    private func showErrorAlert() {
-        let alert = SingleButtonAlert(title: "Unknown Error", message: "please try again later.", action: AlertAction(buttonTitle: "OK", handler: {}))
-        self.presentSingleButtonDialog(alert: alert)
-    }
-
     //MARK:- Data binding
     private func bindViewModel() {
         viewModel?.nowPlayingList.bind { [weak self] _ in
@@ -63,8 +58,8 @@ class NowPlayingViewController: UIViewController {
         }
         viewModel?.state.bind({[weak self] state in
             switch state {
-            case .error(_):
-                self?.showErrorAlert()
+            case .error(let error):
+                self?.presentNetworkError(error: error)
             case .loading, .finishedLoading:
                 break
             }
@@ -76,7 +71,8 @@ class NowPlayingViewController: UIViewController {
 extension NowPlayingViewController: UITableViewDelegate, UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2 // 2nd section of infinite loading
+        guard let viewModel = viewModel else { return 2 }
+        return viewModel.currentPage > viewModel.totalPages ? 1 : 2 // 2nd section of infinite loading while total pages not reached
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

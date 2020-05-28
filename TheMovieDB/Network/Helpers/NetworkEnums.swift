@@ -26,12 +26,13 @@ enum ParametersEncoding {
 }
 
 enum NetworkServiceResponse<T> {
-  case success(T)
-  case failure(NetworkError)
+    case success(T)
+    case failure(NetworkError)
 }
 
 enum NetworkError {
-  case unknown
-  case noJSONData
-  case JSONDecoder
+    case unauthorized
+    case unknown
+    case noJSONData
+    case JSONDecoder
 }
