@@ -28,7 +28,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="cVW-He-6PX"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>

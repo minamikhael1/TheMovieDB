@@ -16,6 +16,7 @@ class SearchViewModel {
     private (set) var searchResult: Bindable<[Movie]> = Bindable([])
     private (set) var currentPage: Int = 1
     private (set) var totalPages: Int = Int.max
+    private var currentQuery: String?
 
     //MARK:- init
     //init SearchViewModel with dependency injection of network server client object
@@ -26,6 +27,10 @@ class SearchViewModel {
 
     //MARK:- Helpers
     func search(query: String) {
+        if currentQuery != query {
+            resetSearch()
+            currentQuery = query
+        }
         if currentPage > totalPages { return }
         state.value = .loading
         let parameters = ["query": query, "page": "\(currentPage)"]

@@ -174,6 +174,7 @@ extension NowPlayingViewController: UISearchBarDelegate {
         if searchBar.text == nil || searchBar.text?.isEmpty == true {
             stopSearchTimer()
             searchMode = false
+            tableView.reloadData()
         } else {
             searchMode = true
             startSearchTimer()
