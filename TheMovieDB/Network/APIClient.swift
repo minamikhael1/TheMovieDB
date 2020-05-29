@@ -11,6 +11,7 @@ import Foundation
 class APIClient: NowPlayingAPIService, SearchAPIService {
 
     private var session: URLSessionProtocol
+    private var currentTask: URLSessionDataTask?
 
     init(session: URLSessionProtocol = URLSession.shared) {
         self.session = session
@@ -22,12 +23,17 @@ class APIClient: NowPlayingAPIService, SearchAPIService {
      - Parameter completion: result of type `NetworkResponse`.
      */
     private func request<T>(type: T.Type, service: Service, completion: @escaping (APIResponse<T>) -> ()) where T: Decodable {
+        if currentTask?.currentRequest?.url?.path == service.path {
+            currentTask?.cancel()
+            currentTask = nil
+        }
         let request = URLRequest(service: service)
-        let task = session.dataTask(request: request, completionHandler: {[weak self] data, response, error in
+        currentTask = session.dataTask(request: request, completionHandler: {[weak self] data, response, error in
+            self?.currentTask = nil
             let httpResponse = response as? HTTPURLResponse
             self?.handleDataResponse(data: data, response: httpResponse, error: error, completion: completion)
         })
-        task.resume()
+        currentTask?.resume()
     }
 
     private func handleDataResponse<T: Decodable>(data: Data?, response: HTTPURLResponse?, error: Error?, completion: (APIResponse<T>) -> ()) {
