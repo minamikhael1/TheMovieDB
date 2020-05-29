@@ -29,7 +29,7 @@ class NowPlayingViewModel {
     func fetchNowPlaying() {
         if currentPage > totalPages { return }
         state.value = .loading
-        apiClient.getNowPlayingMovies(service: NowPlayingAPI(paramters: ["page": "\(currentPage)"]), completion: { [weak self] response in
+        apiClient.getNowPlayingMovies(service: NowPlayingAPI(paramters: [NetworkConstants.pageParameterKey: "\(currentPage)"]), completion: { [weak self] response in
             self?.state.value = .finishedLoading
             switch response {
             case .success(let result):

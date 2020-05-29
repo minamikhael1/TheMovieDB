@@ -15,4 +15,6 @@ struct NetworkConstants {
     static let nowPlayingServicePath = "/movie/now_playing"
     static let searchServicePath = "/search/movie"
     static let imagesBaseURL = "https://image.tmdb.org/t/p/w500/"
+    static let queryParameterKey = "query"
+    static let pageParameterKey = "page"
 }

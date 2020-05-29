@@ -33,7 +33,7 @@ class SearchViewModel {
         }
         if currentPage > totalPages { return }
         state.value = .loading
-        let parameters = ["query": query, "page": "\(currentPage)"]
+        let parameters = [NetworkConstants.queryParameterKey: query, NetworkConstants.pageParameterKey: "\(currentPage)"]
         apiClient.searchMovies(service: SearchAPI(paramters: parameters), completion: { [weak self] response in
             self?.state.value = .finishedLoading
             switch response {

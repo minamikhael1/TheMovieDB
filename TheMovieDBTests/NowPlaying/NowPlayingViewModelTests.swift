@@ -20,6 +20,12 @@ class RepositoriesListViewModelTests: XCTestCase {
             XCTFail()
             return
         }
+        let movie = viewModel.nowPlayingList.value[0]
+        let mockMovie = Movie.getMockMovie()
+        XCTAssertEqual(movie.title, mockMovie.title)
+        XCTAssertEqual(movie.id, mockMovie.id)
+        XCTAssertEqual(movie.overview, mockMovie.overview)
+        XCTAssertEqual(movie.rating, mockMovie.rating)
     }
 
     func testFailFetchNowPlaying() {
