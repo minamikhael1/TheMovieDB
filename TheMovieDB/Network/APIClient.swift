@@ -38,7 +38,7 @@ class APIClient: NowPlayingAPIService, SearchAPIService {
             do {
                 let model = try JSONDecoder().decode(T.self, from: data)
                 completion(.success(model))
-            } catch (let error) {
+            } catch (_) {
                 completion(.failure(.JSONDecoder))
             }
         case 401:
