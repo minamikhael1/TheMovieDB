@@ -20,9 +20,3 @@ internal extension NowPlayingResponse {
         return NowPlayingResponse(movies: [Movie.getMockMovie()], totalPages: 1)
     }
 }
-
-internal extension SearchResponse {
-    static func getMockSearchResponse () -> SearchResponse {
-        return SearchResponse(movies: [Movie.getMockMovie()], page: 1, totalPages: 1)
-    }
-}
