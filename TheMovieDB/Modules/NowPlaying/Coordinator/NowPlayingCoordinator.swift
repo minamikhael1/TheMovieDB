@@ -27,13 +27,13 @@ class NowPlayingCoordinator: Coordinator {
     }
 
     func show(present: Bool = false) {
-        let repositoriesListViewController = getViewController()
+        let nowPlayingViewController = getViewController()
         if present {
-            repositoriesListViewController.modalTransitionStyle = .crossDissolve
-            self.navigationController.viewControllers.last?.present(repositoriesListViewController, animated: true, completion: nil)
+            nowPlayingViewController.modalTransitionStyle = .crossDissolve
+            self.navigationController.viewControllers.last?.present(nowPlayingViewController, animated: true, completion: nil)
         } else {
             self.navigationController.navigationBar.prefersLargeTitles = true
-            self.navigationController.pushViewController(repositoriesListViewController, animated: true)
+            self.navigationController.pushViewController(nowPlayingViewController, animated: true)
         }
     }
 }

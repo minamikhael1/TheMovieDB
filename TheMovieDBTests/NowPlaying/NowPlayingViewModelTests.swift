@@ -10,7 +10,7 @@ import Foundation
 import XCTest
 @testable import TheMovieDB
 
-class RepositoriesListViewModelTests: XCTestCase {
+class NowPlayingViewModelTests: XCTestCase {
 
     func testSuccessFetchNowPlaying() {
         let apiClient = MockAPIClient()
