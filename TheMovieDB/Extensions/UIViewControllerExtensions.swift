@@ -26,7 +26,7 @@ extension UIViewController {
         var alert: SingleButtonAlert?
         switch error {
         case .unauthorized:
-            alert = SingleButtonAlert(title: "API Error", message: "Your API might be wrong", action: AlertAction(buttonTitle: "OK", handler: {}))
+            alert = SingleButtonAlert(title: "API Error", message: "Your API Key might be wrong", action: AlertAction(buttonTitle: "OK", handler: {}))
         case .unknown:
             alert = SingleButtonAlert(title: "Unknown Error", message: "please try again later.", action: AlertAction(buttonTitle: "OK", handler: {}))
         case .noJSONData:
