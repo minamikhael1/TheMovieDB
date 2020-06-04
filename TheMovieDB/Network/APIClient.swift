@@ -19,7 +19,7 @@ class APIClient: NowPlayingAPIService, SearchAPIService {
     /**
      Call this method to perfom a web service of type `Service`
      - Parameter type: is generic type should be a model that confirm to `Codable` protocol
-     - Parameter completion: result of type `NetworkResponse`.
+     - Parameter completion: result of type `APIResponse`.
      */
     private func request<T>(type: T.Type, service: Service, completion: @escaping (APIResponse<T>) -> ()) where T: Decodable {
         let request = URLRequest(service: service)
