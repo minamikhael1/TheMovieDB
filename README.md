@@ -6,6 +6,7 @@ https://developers.themoviedb.org/
 - Listing Now playing movies with endless scrolling (until all pages are fetched)
 - Live search using the search API
 - Movie detail screen
+- Unit tests covering view models and binding
 
 ## Followed Architectures
 
