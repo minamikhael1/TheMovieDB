@@ -3,8 +3,8 @@ iOS app in swift using The Movie Database API to display and search Now Playing 
 https://developers.themoviedb.org/
 
 ## Features
-- Listing Now playing movies with endless scrolling (until all pages are fetched)
-- Live search using the search API
+- Listing Now playing movies with infinite scrolling (until all pages are fetched)  https://developers.themoviedb.org/3/movies/get-now-playing
+- Live search using the search API https://developers.themoviedb.org/3/search/search-movies
 - Movie detail screen
 - Unit tests covering view models and binding
 
