@@ -9,12 +9,17 @@
 import UIKit
 import Foundation
 
+protocol NowPlayingCoordinatorDelegate {
+    func movieSelected(movie: Movie)
+}
+
 class NowPlayingCoordinator: Coordinator {
 
     //MARK:- Variables
     var navigationController: UINavigationController
     var nowPlayingViewModel = NowPlayingViewModel()
     var searchViewModel = SearchViewModel()
+    var delegate: NowPlayingCoordinatorDelegate?
 
     //MARK:- Init
      init(navigationController: UINavigationController) {
@@ -23,7 +28,9 @@ class NowPlayingCoordinator: Coordinator {
 
     //MARK:- Helpers
     func getViewController() -> UIViewController {
-        return NowPlayingViewController(viewModel: nowPlayingViewModel, searchViewModel: searchViewModel)
+        let viewController = NowPlayingViewController(viewModel: nowPlayingViewModel, searchViewModel: searchViewModel)
+        viewController.coordinatorDelegate = self
+        return viewController
     }
 
     func show(present: Bool = false) {
@@ -35,5 +42,11 @@ class NowPlayingCoordinator: Coordinator {
             self.navigationController.navigationBar.prefersLargeTitles = true
             self.navigationController.pushViewController(nowPlayingViewController, animated: true)
         }
+    }
+}
+
+extension NowPlayingCoordinator: NowPlayingCoordinatorDelegate {
+    func movieSelected(movie: Movie) {
+        MovieDetailCoordinator(navigationController: self.navigationController, movie: movie).show()
     }
 }

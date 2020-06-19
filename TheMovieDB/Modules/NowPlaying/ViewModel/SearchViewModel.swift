@@ -11,12 +11,14 @@ import Foundation
 class SearchViewModel {
     
     //MARK:- Properties
-    private (set) var state: Bindable<FetchingServiceState> = Bindable(.loading)
     private let apiClient: APIClient
+    private (set) var state: Bindable<FetchingServiceState> = Bindable(.loading)
     private (set) var searchResult: Bindable<[Movie]> = Bindable([])
+    private (set) var searchMode = false
     private (set) var currentPage: Int = 1
     private (set) var totalPages: Int = Int.max
     private (set) var currentQuery: String?
+    private var searchWaitTimer: Timer?
 
     //MARK:- init
     //init SearchViewModel with dependency injection of network server client object
@@ -25,10 +27,10 @@ class SearchViewModel {
         self.apiClient = apiClient
     }
 
-    //MARK:- Helpers
+    //MARK:- Methods
     func search(query: String) {
         if currentQuery != query {
-            resetSearch()
+            resetValues()
             currentQuery = query
         }
         if currentPage > totalPages { return }
@@ -47,9 +49,48 @@ class SearchViewModel {
         })
     }
 
+    func searchTextChanged(query: String?) {
+        if query == nil || query?.isEmpty == true {
+            stopSearchTimer()
+            searchMode = false
+        } else {
+            searchMode = true
+            startSearchTimer(query: query ?? "")
+        }
+    }
+
+    func searchDidBeginEditing(query: String?) {
+        if query == nil || query?.isEmpty == true {
+            resetSearch()
+        }
+    }
+    
     func resetSearch() {
+        searchMode = false
+        resetValues()
+    }
+
+    //MARK:- Helpers
+    private func resetValues() {
         currentPage = 1
         totalPages = Int.max
         searchResult.value.removeAll()
     }
+
+    private func stopSearchTimer() {
+         searchWaitTimer?.invalidate()
+         searchWaitTimer = nil
+     }
+
+    private func startSearchTimer(query: String) {
+         stopSearchTimer()
+         searchWaitTimer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false, block: {[weak self] _ in
+             self?.performSearch(query: query)
+         })
+     }
+
+    private func performSearch(query: String) {
+         stopSearchTimer()
+         search(query: query)
+     }
 }
