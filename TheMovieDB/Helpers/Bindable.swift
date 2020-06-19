@@ -10,7 +10,7 @@ import Foundation
 
 class Bindable<T> {
     typealias Listener = ((T) -> Void)
-    var listener: Listener?
+    private var listener: Listener?
 
     var value: T {
         didSet {
